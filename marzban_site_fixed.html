@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>v2RayTun VPN - Быстрый и безопасный VPN для любых устройств</title>
+    <meta name="description" content="v2RayTun - это передовое VPN приложение которое позволяет подключить защищенный интернет на любом устройстве. Быстрый, надежный, простой в использовании.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="v2RayTun, VPN, быстрый VPN, безопасный VPN, приложение VPN, защищенный интернет, обход блокировок, анонимность">
+    <meta property="og:title" content="v2RayTun VPN - Быстрый и безопасный VPN для любых устройств">
+    <meta property="og:description" content="v2RayTun - это передовое VPN приложение которое позволяет подключить защищенный интернет на любом устройстве. Быстрый, надежный, простой в использовании.">
+    <meta property="og:site_name" content="v2RayTun VPN">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/hero-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="v2RayTun">
+    <meta name="twitter:title" content="v2RayTun VPN - Быстрый и безопасный VPN">
+    <meta name="twitter:description" content="Передовое VPN приложение для защищенного интернета на любом устройстве.">
+    <meta name="twitter:image" content="images/hero-image.png">
+    <meta name="application-name" content="v2RayTun VPN">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="images/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+    <link rel="shortcut icon" href="images/icon.png">
+    
+    <link rel="canonical" href="https://v2raytun-setup.com">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="author" content="v2RayTun VPN">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="ru">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #06b6d4;
+            --success: #06b6d4;
+            --dark: #1a1a1a;
+            --dark-card: #242424;
+            --dark-border: #383838;
+            --light: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            --shadow-primary: 0 10px 25px -5px rgba(99, 102, 241, 0.25);
+            --shadow-card: 0 4px 12px -4px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+                linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(26, 26, 26, 0.9);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .logotype {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--light);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .logotype:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--light);
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            width: fit-content;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px -12px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--light) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 85%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .secondary-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--dark-border);
+        }
+
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual {
+            width: 100%;
+            max-width: 720px;
+            height: 720px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(99, 102, 241, 0.12) 50%,
+                rgba(6, 182, 212, 0.08) 100%
+            );
+            border-radius: 26px;
+            z-index: -2;
+            backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 8px 32px -12px rgba(99, 102, 241, 0.15),
+                0 20px 60px -20px rgba(6, 182, 212, 0.1);
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            z-index: -1;
+            backdrop-filter: blur(12px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                0 4px 16px -4px rgba(99, 102, 241, 0.08),
+                0 8px 32px -8px rgba(6, 182, 212, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .features {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: rgba(36, 36, 36, 0.6);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 0 1px rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.4);
+            background: rgba(36, 36, 36, 0.8);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+        .feature-card {
+            transform: translateY(0);
+            will-change: transform;
+        }
+
+        .feature-card:hover {
+            transform: none;
+        }
+
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -120%;
+            width: 60%;
+            background: linear-gradient(
+                120deg,
+                rgba(255,255,255,0) 40%,
+                rgba(255,255,255,0.06) 50%,
+                rgba(255,255,255,0) 60%
+            );
+            transform: translateX(0);
+            transition: transform 0.8s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover::after {
+            transform: translateX(300%);
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+            .feature-card,
+            .feature-card::after,
+            .feature-icon {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--light);
+            margin-top: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex: 1;
+            margin: 0;
+        }
+
+        .setup-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%);
+        }
+
+        .setup-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: flex-start;
+        }
+
+        .setup-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            --steps-progress: 0%;
+            --rail-left: 20px;
+            --steps-padding-left: 48px;
+            padding-left: var(--steps-padding-left);
+            z-index: 0;
+        }
+
+        .setup-steps::before {
+            content: "";
+            position: absolute;
+            left: var(--rail-left);
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 1px;
+            z-index: 0;
+        }
+
+        .setup-steps::after {
+            content: "";
+            position: absolute;
+            left: var(--rail-left);
+            top: 8px;
+            width: 2px;
+            height: var(--steps-progress, 0px);
+            background: var(--gradient-primary);
+            border-radius: 1px;
+            z-index: 0;
+            transition: height 0.25s ease;
+        }
+
+        .setup-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(36, 36, 36, 0.4);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .setup-step:hover,
+        .setup-step.active {
+            border-color: rgba(6, 182, 212, 0.4);
+            background: rgba(36, 36, 36, 0.7);
+            box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(6, 182, 212, 0.2);
+        }
+
+        .setup-step .step-number {
+            position: relative;
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+        }
+
+        .setup-step.active .step-number {
+            box-shadow: inset 0 0 0 2px rgba(6, 182, 212, 0.6);
+        }
+
+
+        .steps-active-dot {
+            position: absolute;
+            left: var(--rail-left);
+            top: var(--active-dot-top, 8px);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 0 2px #1a1a1a, 0 0 0 5px rgba(6, 182, 212, 0.25);
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 2;
+            transition: top 0.25s ease;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .setup-step:hover .step-number {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+        }
+
+        .setup-step.active .step-number {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+        }
+
+        .step-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+
+        .step-content p + p {
+            margin-top: 1.25rem;
+        }
+
+
+        .step-action {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .step-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 12px -4px rgba(99, 102, 241, 0.3);
+        }
+
+        .step-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px -4px rgba(99, 102, 241, 0.4);
+        }
+
+        .step-button svg {
+            flex-shrink: 0;
+        }
+
+
+        .step-button-ios {
+            background: linear-gradient(135deg, #007AFF 0%, #005BB5 100%);
+            box-shadow: 0 4px 12px -4px rgba(0, 122, 255, 0.3);
+        }
+
+        .step-button-ios:hover {
+            box-shadow: 0 6px 16px -4px rgba(0, 122, 255, 0.4);
+        }
+
+        .step-button-android {
+            background: linear-gradient(135deg, #34A853 0%, #137333 100%);
+            box-shadow: 0 4px 12px -4px rgba(52, 168, 83, 0.3);
+        }
+
+        .step-button-android:hover {
+            box-shadow: 0 6px 16px -4px rgba(52, 168, 83, 0.4);
+        }
+
+        .step-button-desktop {
+            background: linear-gradient(135deg, #6B7280 0%, #374151 100%);
+            box-shadow: 0 4px 12px -4px rgba(107, 114, 128, 0.3);
+        }
+
+        .step-button-desktop:hover {
+            box-shadow: 0 6px 16px -4px rgba(107, 114, 128, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .step-content p + p {
+                margin-top: 1.4rem;
+            }
+            
+            .step-action {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .step-button {
+                width: 100%;
+                justify-content: center;
+                padding: 0.75rem 1.25rem;
+            }
+        }
+
+
+        .faq-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(36, 36, 36, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 8px 32px -16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(6, 182, 212, 0.2);
+            background: rgba(36, 36, 36, 0.6);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            padding-right: 1rem;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            color: var(--text-secondary);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 3rem 1rem;
+            }
+            
+            .faq-question {
+                padding: 1.25rem;
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+                padding-right: 0.75rem;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 1.25rem 1.25rem;
+            }
+        }
+
+
+        .step-content kbd {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            margin: 0.1rem 0.25rem;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            line-height: 1.2;
+            vertical-align: baseline;
+            font-family: inherit;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 8px -4px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .step-content code {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            margin: 0.1rem 0.25rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.2;
+            vertical-align: baseline;
+            font-family: inherit;
+        }
+        
+        .step-content .price-highlight {
+            display: inline-block;
+            padding: 0.2rem 0.75rem;
+            margin: 0.1rem 0.25rem;
+            border-radius: 8px;
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            vertical-align: baseline;
+            box-shadow: 0 6px 18px -8px rgba(99, 102, 241, 0.6), 0 0 0 1px rgba(6, 182, 212, 0.25) inset;
+        }
+        
+        .step-content .sep { opacity: 0.5; margin: 0 0.15rem; }
+
+        .setup-visual {
+            background: rgba(36, 36, 36, 0.5);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 120px;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+
+        .step-inline-visual {
+            display: none;
+            background: rgba(36, 36, 36, 0.5);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            margin-top: 0.75rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            text-align: center;
+            position: relative;
+        }
+        
+
+
+        .setup-visual-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .setup-image {
+            object-fit: contain;
+            border-radius: 12px;
+            display: none;
+            cursor: zoom-in;
+            transform: scale(1.3);
+            transform-origin: center;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .setup-image[src] {
+            display: block;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .image-zoom-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .image-container:hover .image-zoom-indicator {
+            opacity: 1;
+        }
+
+        .image-zoom-indicator span {
+            margin-left: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .image-container img {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .image-container.changing img {
+            opacity: 0;
+            transform: scale(0.985);
+        }
+
+        .setup-progress {
+            margin-top: 0.75rem;
+        }
+
+        .setup-progress-info {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .setup-progress-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .setup-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .image-caption {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+            margin-top: 1rem;
+        }
+
+        .image-fallback {
+            display: none;
+            width: 100%;
+            height: 420px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+
+        .image-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal .modal-content {
+            max-width: min(95vw, 1200px);
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 32px;
+            line-height: 1;
+            color: #ffffff;
+            cursor: pointer;
+            opacity: 0.85;
+            user-select: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+
+
+        .protocols {
+            padding: 6rem 2rem;
+        }
+
+        .protocols-wrapper {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+
+
+        .protocols-grid {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .protocols-grid::before,
+        .protocols-grid::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .protocols-grid::before {
+            left: 0;
+            background: linear-gradient(to right, var(--background) 0%, transparent 100%);
+        }
+        
+        .protocols-grid::after {
+            right: 0;
+            background: linear-gradient(to left, var(--background) 0%, transparent 100%);
+        }
+        
+        .protocols-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: slide-infinite 15s linear infinite;
+        }
+        
+        @keyframes slide-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 0.75rem)); }
+        }
+        
+        .protocols-track:hover {
+            animation-play-state: paused;
+        }
+
+        .protocol-card {
+            background: rgba(36, 36, 36, 0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            flex: 0 0 280px;
+            min-width: 280px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .protocol-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 12px 32px -16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(6, 182, 212, 0.2);
+            background: rgba(36, 36, 36, 0.7);
+        }
+
+        .protocol-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .protocol-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .protocol-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            margin: 0 auto 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.08));
+            color: var(--secondary);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            box-shadow: 0 8px 24px -16px rgba(6, 182, 212, 0.4);
+        }
+
+        .protocol-name {
+            margin-top: 0.25rem;
+        }
+        
+        .protocol-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .protocol-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--dark-border);
+            background: var(--dark-card);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .u1host-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .u1host-link:hover {
+            color: var(--success);
+        }
+
+        .v2ray-brand {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content,
+            .setup-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .hero-text {
+                text-align: center;
+                order: 1;
+            }
+
+            .hero-image {
+                order: 2;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .setup-visual {
+                order: 2;
+                margin-bottom: 2rem;
+                position: relative;
+                top: auto;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .hero-visual {
+                max-width: 560px;
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .features-grid,
+            .protocols-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .setup-steps {
+                gap: 1rem;
+                padding-left: 0;
+            }
+            .setup-steps::before,
+            .setup-steps::after,
+            .steps-active-dot {
+                display: none;
+            }
+
+            .setup-step {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .setup-visual {
+                padding: 2rem;
+                display: none;
+                width: 100% !important;
+                height: auto !important;
+            }
+            
+            .setup-image {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100%;
+                transform: scale(1.1) !important;
+            }
+
+
+            .step-inline-visual {
+                display: block;
+            }
+
+
+            .hero-image {
+                display: none;
+            }
+
+
+            .protocols-wrapper { max-width: none; }
+            .protocols-grid {
+    
+            }
+            .protocols-grid::before,
+            .protocols-grid::after {
+                width: 40px;
+            }
+            .protocols-track {
+    
+                gap: 1rem;
+            }
+            .protocol-card {
+                flex: 0 0 280px;
+                min-width: 280px;
+            }
+
+
+            .hero-visual {
+                max-width: 420px;
+                height: 420px;
+            }
+
+
+
+            .hero-badge {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 92%;
+                text-align: center;
+            }
+
+
+            .setup-step[data-image]:not(.active) .step-content::after {
+                content: 'Нажмите для просмотра фото';
+                display: block;
+                margin-top: 0.375rem;
+                color: var(--text-secondary);
+                font-size: 0.7rem;
+                line-height: 1.2;
+                letter-spacing: 0.005em;
+                opacity: 0.7;
+            }
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "v2RayTun VPN",
+        "description": "Передовое VPN приложение которое позволяет подключить защищенный интернет на любом устройстве",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": ["iOS", "Android", "Windows", "macOS"],
+        "offers": {
+            "@type": "Offer",
+            "price": "149",
+            "priceCurrency": "RUB",
+            "priceValidUntil": "2025-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "2547"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "v2RayTun VPN"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <header>
+        <div class="header-inner">
+            <a class="logotype default-hover" aria-label="Logotype" href="/"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.25" y="0.25" width="35.5" height="35.5" rx="9.75" fill="url(#paint0_linear_17_647)"></rect><rect x="0.25" y="0.25" width="35.5" height="35.5" rx="9.75" stroke="#333333" stroke-width="0.5"></rect><path d="M11.002 23H7.99449L5 13.2434H7.71457L9.52429 20.5727H9.57636L11.3796 13.2434H13.9965L11.002 23Z" fill="white"></path><path d="M14.5563 16.2454C14.5563 14.3185 16.021 13 18.2148 13C20.35 13 21.7366 14.19 21.7366 15.9006C21.7366 17.1785 20.7992 18.1454 20.0441 18.8959L17.7982 21.046V21.0933H21.8538V23H14.693V21.3435L18.358 17.8411C19.1392 17.0636 19.4256 16.5903 19.4256 15.9817C19.4256 15.3597 18.9179 14.8661 18.1367 14.8661C17.3295 14.8661 16.7436 15.4408 16.7436 16.2454V16.2928H14.5563V16.2454Z" fill="white"></path><path d="M25.4862 15.1163V17.8884H26.8858C27.7646 17.8884 28.2854 17.3543 28.2854 16.5091C28.2854 15.6775 27.7321 15.1163 26.8793 15.1163H25.4862ZM25.4862 19.5855V23H23.0971V13.2434H27.1202C29.4637 13.2434 30.7266 14.4469 30.7266 16.4618C30.7266 17.6586 30.1472 18.7539 29.1187 19.2204L31 23H28.318L26.7036 19.5855H25.4862Z" fill="white"></path><defs><linearGradient id="paint0_linear_17_647" x1="0.5" y1="5.42254e-06" x2="37.2156" y2="1.30517" gradientUnits="userSpaceOnUse"><stop stop-color="#242424"></stop><stop offset="0.200318"></stop><stop offset="0.800446"></stop><stop offset="1" stop-color="#242424"></stop></linearGradient></defs></svg>v2RayTun</a>
+
+            <nav class="nav-links">
+                <a href="#features" class="nav-link">Возможности</a>
+                <a href="#setup" class="nav-link">Настройка</a>
+                <a href="#protocols" class="nav-link">Протоколы</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#support" class="nav-link">Поддержка</a>
+            </nav>
+
+            <a href="#setup" class="cta-button">Начать использовать</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Лучший VPN 2025
+                </div>
+                
+                <h1 class="hero-title">
+                    v2RayTun VPN - Быстрый и безопасный VPN для любых устройств
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Передовое VPN приложение которое позволяет подключить защищенный интернет на любом устройстве. 
+                    Быстрый, надежный, простой в использовании с поддержкой всех современных протоколов.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#setup" class="cta-button">Начать использовать</a>
+                    <a href="#setup" class="secondary-button">Узнать больше</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-visual">
+                                            <img src="images/hero-image.png" alt="v2RayTun VPN - быстрое и безопасное VPN приложение для всех устройств" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                Инновационные технологии
+            </div>
+            <h2 class="section-title">Наши преимущества</h2>
+            <p class="section-subtitle">
+                Непревзойденная скорость, безопасность и надежность – вот почему мы лидируем на рынке VPN клиентов на базе Xray Core
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <circle cx="12" cy="16" r="1"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                <h3>Многоуровневое шифрование</h3>
+                <p>Поддержка AES-128-GCM, AES-256-GCM, ChaCha20-IETF-Poly1305 и других современных алгоритмов шифрования для максимальной защиты</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h3>XTLS технология</h3>
+                <p>Революционная технология устраняющая двойное шифрование TLS, обеспечивая непревзойденную скорость и производительность</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Продвинутые протоколы</h3>
+                <p>Поддержка VLESS, VMess, Trojan, Shadowsocks с функциями маскировки трафика и защиты от обнаружения</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                </div>
+                <h3>Кроссплатформенность</h3>
+                <p>Поддержка iOS, Android, macOS, Windows и Linux с единой конфигурацией для всех устройств</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="15" height="13"/>
+                        <path d="M16 8h5l-3 3-3-3z"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="20.5" cy="18.5" r="2.5"/>
+                    </svg>
+                </div>
+                <h3>Низкое потребление ресурсов</h3>
+                <p>Оптимизирован для работы на устройствах с ограниченными ресурсами включая OpenWRT и Raspberry Pi</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.11 0 2.18.2 3.17.56"/>
+                    </svg>
+                </div>
+                <h3>Простота настройки</h3>
+                <p>Импорт конфигурации через QR-код, ссылку или буфер обмена. Готов к работе за считанные секунды</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="setup-section" id="setup">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Быстрая настройка
+            </div>
+            <h2 class="section-title">Как получить v2RayTun за 10 минут</h2>
+            <p class="section-subtitle">
+                Подробная пошаговая инструкция для быстрого получения доступа к VPN
+            </p>
+        </div>
+
+
+
+        <div class="setup-content">
+            <div class="setup-steps">
+                <div class="steps-active-dot" aria-hidden="true"></div>
+                <div class="setup-step" 
+                     data-image="images/step1-image.png"
+                     data-caption="Регистрация на U1HOST">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Регистрация на U1HOST</h4>
+                        <p>Перейдите на <a href="https://u1host.com" class="u1host-link" target="_blank">u1host.com</a> и нажмите <kbd>Регистрация</kbd>.</p>
+                        <p>Заполните форму: <code>email</code><span class="sep">/</span><code>пароль</code> и подтвердите регистрацию через письмо на почте.</p>
+                        <div class="step-action">
+                            <a href="https://u1host.com" target="_blank" class="step-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15,3 21,3 21,9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Перейти на U1HOST
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step-inline-visual" class="step-inline-visual" aria-hidden="false">
+                    <div class="setup-visual-content">
+                        <div class="image-container">
+                            <img id="setup-screenshot-inline" class="setup-image" alt="Скриншот шага" />
+                            <div class="image-zoom-indicator" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                </svg>
+                                <span>Нажмите, чтобы увеличить</span>
+                            </div>
+                        </div>
+                        <div id="setup-caption-inline" class="image-caption"></div>
+                        <div id="image-fallback-inline" class="image-fallback">
+                            <div style="text-align:center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.6;margin-bottom:.5rem">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="9" cy="9" r="2"></circle>
+                                    <path d="M21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                                </svg>
+                                <div>Наведите на шаг для просмотра</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step2-image.png"
+                     data-caption="Выбор VPS тарифа">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Выбор VPS тарифа</h4>
+                        <p>В личном кабинете нажмите <kbd>Заказать услугу</kbd> → <kbd>VPS</kbd>.</p>
+                        <p>Выберите локацию: <code>DE‑Promo</code>, <code>NL‑Promo</code> или <code>FI‑Promo</code>.</p>
+                        <p><span class="price-highlight">Стоимость — 149 ₽ в месяц</span></p>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step3-image.png"
+                     data-caption="Настройка сервера">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Настройка сервера</h4>
+                        <p>Выберите ОС: <code>Debian 11</code> или <code>Debian 12</code>.</p>
+                        <p>В разделе <kbd>Предустановленное ПО</kbd> обязательно выберите <strong>Marzban</strong> — это ключевой момент!</p>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step4-image.png"
+                     data-caption="Оплата заказа">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Оплата заказа</h4>
+                        <p>Выберите период оплаты и способ: <code>ЮMoney</code>, <code>МИР</code>, <code>Тинькофф</code>, <code>СБП</code> или <code>криптовалюта</code>.</p>
+                        <p>После оплаты подождите ~<strong>3–4 минуты</strong> для активации сервера.</p>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step5-image.png"
+                     data-caption="Получение данных для VPN">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Получение данных для VPN</h4>
+                        <p>В разделе <kbd>Серверы</kbd> выберите ваш сервер → <kbd>Инструкция</kbd>.</p>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step6-image.png"
+                     data-caption="Вход в панель управления VPN">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Вход в панель управления</h4>
+                        <p>Откройте ссылку из <strong>инструкции</strong> в браузере и войдите с полученными <code>логином</code> и <code>паролем</code>. Откроется <strong>панель управления</strong> VPN.</p>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step7-image.png"
+                     data-caption="Создание нового пользователя VPN">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h4>Создание VPN ключа</h4>
+                        <p>В панели нажмите <kbd>Users</kbd> → <kbd>Create new user</kbd>.</p>
+                        <p>Введите <code>имя пользователя</code>, выберите протокол (рекомендуем <strong>VLESS</strong>) и нажмите <kbd>Save</kbd>.</p>
+                    </div>
+                </div>
+
+                <div class="setup-step" 
+                     data-image="images/step8-image.png"
+                     data-caption="Скачивание приложения V2rayTun">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h4>Подключение к VPN</h4>
+                        <p>Скопируйте <strong>ключ</strong> или <strong>QR‑код</strong>.</p>
+                        <p>Скачайте приложение <strong>V2rayTun</strong>, добавьте ключ и подключитесь!</p>
+                        <div class="step-action">
+                            <a href="https://apps.apple.com/app/v2raytun/id6476628951" target="_blank" class="step-button step-button-ios">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.71,19.5c-.83,1.24-1.71,2.45-3.05,2.47-1.34,.03-1.77-.79-3.29-.79-1.53,0-2,.76-3.27,.82-1.31,.05-2.3-1.32-3.14-2.53C4.25,17 2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,.65,.03,2.47,.26,3.64,1.98-.09,.06-2.17,1.28-2.15,3.81,.03,3.02,2.65,4.03,2.68,4.04-.03,.07-.42,1.44-1.38,2.83Z"/>
+                                    <path d="M13,3.5c.73-.83,1.94-1.46,2.94-1.5,.13,1.17-.34,2.35-1.04,3.19-.69,.85-1.83,1.51-2.95,1.42-.15-1.15,.41-2.35,1.05-3.11Z"/>
+                                </svg>
+                                iOS App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android" target="_blank" class="step-button step-button-android">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                                </svg>
+                                Google Play
+                            </a>
+                            <a href="https://github.com/yanue/V2rayU/releases" target="_blank" class="step-button step-button-desktop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21,2H3A1,1 0 0,0 2,3V17A1,1 0 0,0 3,18H9V20H7V22H17V20H15V18H21A1,1 0 0,0 22,17V3A1,1 0 0,0 21,2M20,16H4V4H20V16Z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Desktop
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setup-visual">
+                <div class="setup-visual-content">
+                    <div class="image-container">
+                        <img id="setup-screenshot" class="setup-image" alt="Скриншот шага" />
+                        <div class="image-zoom-indicator" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                            <span>Нажмите, чтобы увеличить</span>
+                        </div>
+                    </div>
+                    <div id="setup-caption" class="image-caption"></div>
+                    <div id="image-fallback" class="image-fallback">
+                        <div style="text-align:center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.6;margin-bottom:.5rem">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="9" cy="9" r="2"></circle>
+                                <path d="M21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                            </svg>
+                            <div>Наведите на шаг для просмотра</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="protocols" id="protocols">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Поддерживаемые протоколы
+            </div>
+            <h2 class="section-title">Поддерживаемые протоколы</h2>
+            <p class="section-subtitle">
+                Наш клиент поддерживает VLESS, VMess, ShadowSocks, Trojan и все транспортные протоколы которые поддерживаются Xray Core
+            </p>
+        </div>
+
+                <div class="protocols-wrapper">
+            <div class="protocols-grid" id="protocols-container">
+                <div class="protocols-track">
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">VLESS</div>
+                        <p class="protocol-description">Современный протокол с высокой устойчивостью к блокировкам и отличной производительностью</p>
+                    </div>
+
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">VMESS</div>
+                        <p class="protocol-description">Проверенный и надежный протокол, совместимый с большинством VPN приложений</p>
+                    </div>
+
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">Trojan</div>
+                        <p class="protocol-description">Скрытый протокол, замаскированный под обычный веб-трафик для максимальной незаметности</p>
+                    </div>
+
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">Shadowsocks</div>
+                        <p class="protocol-description">Быстрый и легкий протокол с надежным шифрованием, идеален для мобильных устройств</p>
+                    </div>
+
+                    <!-- Дублированные карточки для бесконечного эффекта -->
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">VLESS</div>
+                        <p class="protocol-description">Современный протокол с высокой устойчивостью к блокировкам и отличной производительностью</p>
+                    </div>
+
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">VMESS</div>
+                        <p class="protocol-description">Проверенный и надежный протокол, совместимый с большинством VPN приложений</p>
+                    </div>
+
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">Trojan</div>
+                        <p class="protocol-description">Скрытый протокол, замаскированный под обычный веб-трафик для максимальной незаметности</p>
+                    </div>
+
+                    <div class="protocol-card">
+                        <div class="protocol-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="protocol-name v2ray-brand">Shadowsocks</div>
+                        <p class="protocol-description">Быстрый и легкий протокол с надежным шифрованием, идеален для мобильных устройств</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="support">
+        <div class="cta-content">
+            <h2 class="cta-title">Получите v2RayTun прямо сейчас</h2>
+            <p class="cta-subtitle">
+                Испытайте безупречную защиту и скорость на всех устройствах – от настольных ПК до мобильных устройств. 
+                Наш VPN клиент разработан для безукоризненной работы на любой платформе.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://u1host.com" target="_blank" class="primary-button">Заказать VPS на U1HOST</a>
+                <a href="https://wiki.u1host.com/vpn-guide/quick-vpn-server-setup" target="_blank" class="secondary-button">Подробная инструкция</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="section-header">
+            <div class="section-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9 9a3 3 0 0 1 5.12-2.12l3 3a3 3 0 0 1-4.24 4.24"></path>
+                    <path d="M12 17h.01"></path>
+                </svg>
+                Вопросы и ответы
+            </div>
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <p class="section-subtitle">
+                Ответы на самые популярные вопросы о настройке и использовании v2RayTun
+            </p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Что такое v2RayTun и чем он отличается от обычных VPN?</h3>
+                    <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>v2RayTun — это современный VPN-клиент на базе Xray Core, который обеспечивает более высокую скорость и надежность по сравнению с традиционными VPN. Он использует передовые протоколы (VLESS, VMess, Trojan, Shadowsocks) и специально оптимизирован для обхода блокировок.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Сколько времени занимает настройка?</h3>
+                    <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Полная настройка занимает около 10 минут. Это включает регистрацию на U1HOST, заказ VPS с предустановленным Marzban, получение ключей и подключение в приложении v2RayTun.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>На каких устройствах работает v2RayTun?</h3>
+                    <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>v2RayTun доступен на всех основных платформах: iPhone, iPad, Android, Android TV, Windows, macOS. Приложение нативно оптимизировано для каждой платформы.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Какова стоимость использования?</h3>
+                    <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Стоимость VPS сервера на U1HOST составляет 149 ₽ в месяц. Приложение v2RayTun можно скачать бесплатно. Вы платите только за хостинг своего персонального сервера.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Безопасно ли использовать v2RayTun?</h3>
+                    <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, v2RayTun использует военное шифрование и передовые технологии безопасности. Весь трафик шифруется, а протоколы специально разработаны для максимальной приватности и обхода DPI-анализа.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Что делать, если возникли проблемы с подключением?</h3>
+                    <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Обратитесь в <a href="https://u1host.com" class="u1host-link" target="_blank">техническую поддержку U1HOST</a> — мы поможем решить любые вопросы. Также доступна <a href="https://wiki.u1host.com/vpn-guide/quick-vpn-server-setup" class="u1host-link" target="_blank">подробная документация</a> по настройке.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://u1host.com" target="_blank" class="footer-link">U1HOST</a>
+                <a href="https://wiki.u1host.com/vpn-guide/quick-vpn-server-setup" target="_blank" class="footer-link">Документация</a>
+            </div>
+            <p class="footer-text">© 2025 v2RayTun. Powered by U1HOST - мы не продаем VPN, мы предоставляем хостинг для вашего персонального VPN сервера.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для увеличенного изображения -->
+    <div id="image-modal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
+    <script>
+        // Функция для установки скриншота из data-атрибутов шага
+        function setScreenshotFromStep(stepEl) {
+            const img = document.getElementById('setup-screenshot');
+            const caption = document.getElementById('setup-caption');
+            const fallback = document.getElementById('image-fallback');
+            const imageContainer = document.querySelector('.setup-visual .image-container');
+            // Inline (mobile) visual elements
+            const inlineContainer = document.getElementById('step-inline-visual');
+            const inlineImageContainer = inlineContainer?.querySelector('.image-container');
+            const inlineImg = document.getElementById('setup-screenshot-inline');
+            const inlineCaption = document.getElementById('setup-caption-inline');
+            const inlineFallback = document.getElementById('image-fallback-inline');
+            // removed progress info UI
+            const stepsContainer = document.querySelector('.setup-steps');
+ 
+            const url = stepEl?.dataset.image;
+            const text = stepEl?.dataset.caption || stepEl?.querySelector('h4')?.textContent || '';
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+ 
+            // Update vertical progress rail and active dot position for any step
+            if (stepsContainer && stepEl) {
+                const steps = Array.from(stepsContainer.querySelectorAll('.setup-step'));
+                const railTopOffset = 8; // sync with CSS ::after top
+                const stepNumberHeight = 32; // .step-number height
+                const dotRadius = 5; // half of 10px dot
+                const dotOffsetWithinStep = (stepNumberHeight - dotRadius); // aligns near number center
+                const containerRect = stepsContainer.getBoundingClientRect();
+                const stepRect = stepEl.getBoundingClientRect();
+                const currentTop = (stepRect.top - containerRect.top) + dotOffsetWithinStep - railTopOffset;
+                const maxTop = steps.reduce((max, s) => {
+                    const r = s.getBoundingClientRect();
+                    const t = (r.top - containerRect.top) + dotOffsetWithinStep - railTopOffset;
+                    return Math.max(max, t);
+                }, 0);
+                const clamped = Math.max(0, Math.min(currentTop, maxTop));
+                stepsContainer.style.setProperty('--steps-progress', `${clamped}px`);
+                stepsContainer.style.setProperty('--active-dot-top', `${railTopOffset + clamped}px`);
+            }
+ 
+            if (url) {
+                imageContainer?.classList.add('changing');
+                
+                // Функция для изменения размера блока под изображение
+                const resizeBlockToImage = (image, visualBlock) => {
+                    const tempImg = new Image();
+                    tempImg.onload = () => {
+                        const originalWidth = tempImg.naturalWidth;
+                        const originalHeight = tempImg.naturalHeight;
+                        const aspectRatio = originalWidth / originalHeight;
+                        
+                        // Определяем максимальные размеры с учетом viewport
+                        const maxWidth = Math.min(window.innerWidth * 0.4, 800); // 40% от ширины экрана или 800px
+                        const maxHeight = Math.min(window.innerHeight * 0.6, 600); // 60% от высоты экрана или 600px
+                        
+                        let targetWidth = originalWidth;
+                        let targetHeight = originalHeight;
+                        
+                        // Ограничиваем размеры, сохраняя пропорции
+                        if (targetWidth > maxWidth) {
+                            targetWidth = maxWidth;
+                            targetHeight = targetWidth / aspectRatio;
+                        }
+                        if (targetHeight > maxHeight) {
+                            targetHeight = maxHeight;
+                            targetWidth = targetHeight * aspectRatio;
+                        }
+                        
+                        // Применяем scale 1.3, поэтому уменьшаем базовые размеры
+                        const baseWidth = targetWidth / 1.3;
+                        const baseHeight = targetHeight / 1.3;
+                        
+                        // Устанавливаем размеры изображения
+                        image.style.width = `${baseWidth}px`;
+                        image.style.height = `${baseHeight}px`;
+                        
+                        // Рассчитываем правильное расстояние для caption с учетом scale
+                        const scaleValue = 1.3;
+                        const scaledImageHeight = baseHeight * scaleValue;
+                        const desiredCaptionDistance = 16; // 1rem в пикселях
+                        const calculatedMargin = desiredCaptionDistance + (scaledImageHeight - baseHeight) / 2;
+                        
+                        // Применяем рассчитанное расстояние к caption
+                        const caption = visualBlock?.querySelector('.image-caption');
+                        if (caption) {
+                            caption.style.marginTop = `${calculatedMargin}px`;
+                        }
+                        
+                        // Изменяем размер блока с учетом padding
+                        if (visualBlock && !window.matchMedia('(max-width: 1024px)').matches) {
+                            const paddingTotal = 2.5 * 2 * 16; // 2.5rem * 2 * 16px
+                            const captionHeight = 20; // примерная высота строки caption
+                            const captionSpace = calculatedMargin + captionHeight;
+                            visualBlock.style.width = `${targetWidth + paddingTotal}px`;
+                            visualBlock.style.height = `${targetHeight + paddingTotal + captionSpace}px`;
+                        }
+                    };
+                    tempImg.src = url;
+                };
+                
+                img.onload = () => {
+                    imageContainer?.classList.remove('changing');
+                    const visualBlock = document.querySelector('.setup-visual');
+                    resizeBlockToImage(img, visualBlock);
+                };
+                img.src = url;
+                img.alt = text;
+                caption.textContent = text;
+                img.style.display = 'block';
+                fallback.style.display = 'none';
+ 
+                // Update inline (mobile) visual
+                if (inlineImageContainer && inlineImg && inlineCaption && inlineFallback) {
+                    if (isMobile && inlineContainer) {
+                        inlineContainer.style.display = 'block';
+                    }
+                    inlineImageContainer.classList.add('changing');
+                    inlineImg.onload = () => {
+                        inlineImageContainer.classList.remove('changing');
+                        
+                        // Рассчитываем правильное расстояние для caption в inline версии
+                        const inlineScaleValue = 1.1; // Меньше scale для мобильных
+                        const inlineBaseHeight = inlineImg.offsetHeight / inlineScaleValue;
+                        const inlineScaledHeight = inlineBaseHeight * inlineScaleValue;
+                        const inlineDesiredDistance = 16; // 1rem в пикселях
+                        const inlineCalculatedMargin = inlineDesiredDistance + (inlineScaledHeight - inlineBaseHeight) / 2;
+                        
+                        if (inlineCaption) {
+                            inlineCaption.style.marginTop = `${inlineCalculatedMargin}px`;
+                        }
+                    };
+                    inlineImg.src = url;
+                    inlineImg.alt = text;
+                    inlineCaption.textContent = text;
+                    inlineImg.style.display = 'block';
+                    inlineFallback.style.display = 'none';
+                }
+ 
+                // progress update already handled above
+ 
+                 // On mobile, place inline visual right after the active step
+                 if (isMobile && inlineContainer && stepEl?.parentNode) {
+                     stepEl.parentNode.insertBefore(inlineContainer, stepEl.nextSibling);
+                 }
+             } else {
+                 img.style.display = 'none';
+                 fallback.style.display = 'flex';
+                 caption.textContent = '';
+                 if (inlineImg && inlineFallback && inlineCaption) {
+                     inlineImg.style.display = 'none';
+                     inlineFallback.style.display = 'flex';
+                     inlineCaption.textContent = '';
+                 }
+             }
+        }
+ 
+        function initSetupPreview() {
+            const steps = [...document.querySelectorAll('.setup-step')];
+            const setupImage = document.getElementById('setup-screenshot');
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+ 
+            // Показываем первое изображение по умолчанию
+            const firstWithImage = steps.find(s => s.dataset.image);
+            if (firstWithImage) {
+                steps.forEach(s => s.classList.remove('active'));
+                firstWithImage.classList.add('active');
+                setScreenshotFromStep(firstWithImage);
+            }
+ 
+            steps.forEach(step => {
+                const activate = () => {
+                    // Убираем активный класс со всех шагов
+                    steps.forEach(s => s.classList.remove('active'));
+                    // Добавляем активный класс к текущему шагу
+                    step.classList.add('active');
+                    // Устанавливаем скриншот
+                    setScreenshotFromStep(step);
+                };
+ 
+                // На десктопе активируем по hover; на мобильных только по клику
+                if (!isMobile) {
+                    step.addEventListener('mouseenter', activate);
+                }
+                step.addEventListener('click', activate);
+            });
+ 
+            // Предзагрузка изображений
+            steps.forEach(s => {
+                if (s.dataset.image) {
+                    const img = new Image();
+                    img.src = s.dataset.image;
+                }
+            });
+ 
+            // Модальное окно для увеличения изображений
+            initImageModal();
+ 
+            // Клавиатурная навигация по шагам
+            document.addEventListener('keydown', function(e) {
+                if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+                const all = [...document.querySelectorAll('.setup-step')];
+                if (!all.length) return;
+                let idx = all.findIndex(s => s.classList.contains('active'));
+                if (idx === -1) idx = 0;
+                idx = e.key === 'ArrowRight' ? Math.min(idx + 1, all.length - 1) : Math.max(idx - 1, 0);
+                all.forEach(s => s.classList.remove('active'));
+                const next = all[idx];
+                next.classList.add('active');
+                setScreenshotFromStep(next);
+            });
+ 
+            // Recalculate rail on resize for current active step
+            window.addEventListener('resize', () => {
+                const active = document.querySelector('.setup-step.active');
+                if (active) setScreenshotFromStep(active);
+                
+                // Пересчитываем размер блока при изменении размера окна
+                const currentImg = document.getElementById('setup-screenshot');
+                const visualBlock = document.querySelector('.setup-visual');
+                if (currentImg && currentImg.src && visualBlock && currentImg.naturalWidth) {
+                    const resizeBlockToImage = (image, visualBlock) => {
+                        const originalWidth = image.naturalWidth;
+                        const originalHeight = image.naturalHeight;
+                        const aspectRatio = originalWidth / originalHeight;
+                        
+                        const maxWidth = Math.min(window.innerWidth * 0.4, 800);
+                        const maxHeight = Math.min(window.innerHeight * 0.6, 600);
+                        
+                        let targetWidth = originalWidth;
+                        let targetHeight = originalHeight;
+                        
+                        if (targetWidth > maxWidth) {
+                            targetWidth = maxWidth;
+                            targetHeight = targetWidth / aspectRatio;
+                        }
+                        if (targetHeight > maxHeight) {
+                            targetHeight = maxHeight;
+                            targetWidth = targetHeight * aspectRatio;
+                        }
+                        
+                        const baseWidth = targetWidth / 1.3;
+                        const baseHeight = targetHeight / 1.3;
+                        
+                        image.style.width = `${baseWidth}px`;
+                        image.style.height = `${baseHeight}px`;
+                        
+                        // Рассчитываем правильное расстояние для caption с учетом scale
+                        const scaleValue = 1.3;
+                        const scaledImageHeight = baseHeight * scaleValue;
+                        const desiredCaptionDistance = 16; // 1rem в пикселях
+                        const calculatedMargin = desiredCaptionDistance + (scaledImageHeight - baseHeight) / 2;
+                        
+                        // Применяем рассчитанное расстояние к caption
+                        const caption = visualBlock?.querySelector('.image-caption');
+                        if (caption) {
+                            caption.style.marginTop = `${calculatedMargin}px`;
+                        }
+                        
+                        if (!window.matchMedia('(max-width: 1024px)').matches) {
+                            const paddingTotal = 2.5 * 2 * 16;
+                            const captionHeight = 20; // примерная высота строки caption
+                            const captionSpace = calculatedMargin + captionHeight;
+                            visualBlock.style.width = `${targetWidth + paddingTotal}px`;
+                            visualBlock.style.height = `${targetHeight + paddingTotal + captionSpace}px`;
+                        }
+                    };
+                    resizeBlockToImage(currentImg, visualBlock);
+                }
+            });
+        }
+ 
+        function initImageModal() {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            const closeBtn = document.querySelector('.modal-close');
+            const setupImage = document.getElementById('setup-screenshot');
+            const setupImageInline = document.getElementById('setup-screenshot-inline');
+ 
+            // Открытие модального окна при клике на изображение
+            const bindImageClick = (imgEl) => {
+                if (!imgEl) return;
+                imgEl.addEventListener('click', function() {
+                    if (this.src && this.style.display !== 'none') {
+                        modal.classList.add('active');
+                        modalImg.src = this.src;
+                        modalImg.alt = this.alt;
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            };
+            bindImageClick(setupImage);
+            bindImageClick(setupImageInline);
+ 
+            // Закрытие модального окна
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            };
+ 
+            closeBtn.addEventListener('click', closeModal);
+ 
+            // Закрытие по клику вне изображения
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+ 
+            // Закрытие по ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        }
+ 
+
+
+        // FAQ Accordion functionality
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    faqItems.forEach(faq => faq.classList.remove('active'));
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Инициализация при загрузке страницы
+        window.addEventListener('load', () => { initSetupPreview(); initFAQ(); });
+
+        // Re-place inline visual under active step on resize for mobile UX
+        window.addEventListener('resize', () => {
+            const active = document.querySelector('.setup-step.active');
+            if (active) setScreenshotFromStep(active);
+        });
+ 
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+ 
+                const targetId = this.getAttribute("href");
+                if (targetId === "#") return;
+ 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
